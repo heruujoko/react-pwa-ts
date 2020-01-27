@@ -10639,6 +10639,19 @@ video {
   z-index: auto;
 }
 
+.new-content-message {
+  width: 300px;
+  color: white;
+}
+
+.bg-dark {
+  background: #444;
+}
+
+.clickable {
+  cursor: pointer !important;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

@@ -3,3 +3,16 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.new-content-message {
+    width: 300px;
+    color: white;
+}
+
+.bg-dark {
+    background: #444;
+}
+
+.clickable {
+    cursor: pointer !important;
+}

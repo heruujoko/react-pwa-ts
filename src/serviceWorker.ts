@@ -63,16 +63,20 @@ export function register(config?: Config) {
 }
 
 function registerValidSW(swUrl: string, config?: Config) {
+  console.log('prepare for sw registration');
   navigator.serviceWorker
     .register(swUrl)
     .then(registration => {
+      console.log('sw update found');
       registration.onupdatefound = () => {
+        console.log('prepare for installing new version ...');
         const installingWorker = registration.installing;
         if (installingWorker == null) {
           return;
         }
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
+            console.log('new version installed');
             if (navigator.serviceWorker.controller) {
               // At this point, the updated precached content has been fetched,
               // but the previous service worker will still serve the older
@@ -82,11 +86,18 @@ function registerValidSW(swUrl: string, config?: Config) {
                   'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
               );
 
+              // show notification
+              const notification = document.getElementById("new-content-info");
+              if (notification) {
+                notification.classList.remove("hidden");
+              }
+
               // Execute callback
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
               }
             } else {
+              console.log('not installing any new version');
               // At this point, everything has been precached.
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
