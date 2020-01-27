@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import requestUtils from './utils/request.utils';
 
 const App: React.FC = () => {
+
+  const fetchMe = async () => {
+    const resp = await requestUtils.get(`https://jsonplaceholder.typicode.com/todos/1`);
+    console.log('resp', resp);
+  };
+
+  useEffect(() => {
+    fetchMe();
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
