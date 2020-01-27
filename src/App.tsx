@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import requestUtils from './utils/request.utils';
+import todoService from './services/todo.service';
 
 const App: React.FC = () => {
 
   const fetchMe = async () => {
-    const resp = await requestUtils.get(`https://jsonplaceholder.typicode.com/todos/1`);
+    const resp = await todoService.getTodo(1);
     console.log('resp', resp);
   };
 
