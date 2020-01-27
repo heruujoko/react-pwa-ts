@@ -7,7 +7,7 @@ notification will appear when new update on server available and using serviceWo
 
 ## Changelog
 - added tailwind css as base
-- FetchAPI as default request helper but simplified (axios like style)
+- FetchAPI as default request helper but simplified (axios like style) see https://github.com/heruujoko/react-pwa-ts/blob/master/src/utils/request.utils.ts
 
 ## Available Scripts
 
